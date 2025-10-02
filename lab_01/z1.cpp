@@ -1,6 +1,11 @@
 #include <iostream>
+#include <cstdio>
 
-int main(int argc, char *argv[]) {
-    std::cout << "Hello World!" << std::endl;
+using namespace std;
+
+int main()
+{
+    cout << "Hello World!" << endl;
+    printf("Hello World! (C)\n");
     return 0;
 }
