@@ -12,5 +12,5 @@ int main() {
         }
     }
     else count = 1;
-    cout <<"Ilość liczb- " << count << endl;
+    cout <<"Ilość liczb " << count << endl;
 }
