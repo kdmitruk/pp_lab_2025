@@ -3,9 +3,9 @@
 
 int main() {
     char t1[100]="abcd";
-    char t2[100]="abc";
+    char t2[100]="abcf";
 
-    //printf("%d",strcmp(t1,t2));
+    printf("%d\n",strcmp(t1,t2));
     int result=0;
     int i;
     for (i=0; t1[i]!='\0'||t2[i]!='\0'; i++) {
@@ -18,6 +18,7 @@ int main() {
             break;
         }
     }
+
     if (result!=0) {
         printf("%d", result);
     }
