@@ -17,6 +17,4 @@ int main () {
     for (int i = 0; i < SIZE; i++)
         cout << arr[i] << " ";
 
-}//
-// Created by student on 30.10.2025.
-//
+}
