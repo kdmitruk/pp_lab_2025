@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <cmath>
 #include <cstring>
+#include <thread>
 
 using namespace std;
 
@@ -51,6 +52,15 @@ void convolution(unsigned char* arr, int rows, int cols){
     delete[] temp_arr;
 }
 
+void loop(unsigned char* arr, int rows, int cols){
+    for(int i=0; i<100; i++) {
+        convolution(arr, rows, cols);
+        cout<<endl;
+        show_arr(arr, rows, cols);
+        std::this_thread::sleep_for(500ms);
+    }
+}
+
 int main(){
     const int ROWS = 5;
     const int COLS = 10;
@@ -59,12 +69,7 @@ int main(){
     unsigned char* arr_as_1d = (unsigned char*)arr;
     populate_arr(arr_as_1d, ROWS, COLS);
     show_arr(arr_as_1d, ROWS, COLS);
-
-    cout<<endl;
-
-    convolution(arr_as_1d, ROWS, COLS);
-    show_arr(arr_as_1d, ROWS, COLS);
-
+    loop(arr_as_1d, ROWS, COLS);
 
     return 0;
 }
