@@ -22,8 +22,12 @@ void populate_arr(unsigned char* arr, int rows, int cols){
     }
 }
 
-void convolution(unsigned char arr[5][10], int rows, int cols){
-    unsigned char temp_arr[5][10];
+unsigned char& at(unsigned char* arr, int y, int x, int cols) {
+    return arr[cols*y+x];
+}
+
+void convolution(unsigned char* arr, int rows, int cols){
+    unsigned char* temp_arr = new unsigned char[rows*cols];
     unsigned int sum, counter;
 
     for(int y = 0; y < rows; y++){
@@ -34,17 +38,17 @@ void convolution(unsigned char arr[5][10], int rows, int cols){
                 if(ly>=0 && ly<rows){
                     for(int lx=x-1; lx<=x+1; lx++){
                         if(lx>=0 && lx<cols){
-                            sum += arr[ly][lx];
+                            sum += at(arr, ly, lx, cols);
                             counter++;
                         }
                     }
                 }
             }
-            temp_arr[y][x]=round((float)sum/counter);
+            at(temp_arr, y, x, cols)=round((float)sum/counter);
         }
     }
-
     memcpy(arr, temp_arr, sizeof(unsigned char)*rows*cols);
+    delete[] temp_arr;
 }
 
 int main(){
@@ -52,13 +56,14 @@ int main(){
     const int COLS = 10;
 
     unsigned char arr[ROWS][COLS];
-    populate_arr((unsigned char*)arr, ROWS, COLS);
-    show_arr((unsigned char*)arr, ROWS, COLS);
+    unsigned char* arr_as_1d = (unsigned char*)arr;
+    populate_arr(arr_as_1d, ROWS, COLS);
+    show_arr(arr_as_1d, ROWS, COLS);
 
     cout<<endl;
 
-    convolution(arr, ROWS, COLS);
-    show_arr((unsigned char*)arr, ROWS, COLS);
+    convolution(arr_as_1d, ROWS, COLS);
+    show_arr(arr_as_1d, ROWS, COLS);
 
 
     return 0;
