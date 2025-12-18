@@ -17,10 +17,7 @@ float *limit_arr(float arr[], int s, float min, float max, int *n_out){
         if (in_range(arr[i], min, max))
             result[j++] = arr[i];
     return result;
-
-
 }
-
 
 int main(){
     const int S = 5;
