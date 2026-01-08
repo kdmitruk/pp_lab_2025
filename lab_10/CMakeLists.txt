@@ -9,3 +9,5 @@ foreach(SRC ${SOURCES})
         )
     target_include_directories(${LAB_NAME}_${EXE_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 endforeach()
+
+add_subdirectory(projekt)
