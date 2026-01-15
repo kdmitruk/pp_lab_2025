@@ -37,7 +37,7 @@ int checkString(char c1[],char c2[]){
         return 1;
 }
 
-bool compare1(char *a, char * b){
+bool compare(char *a, char * b){
     return checkString(a, b) == -1;
 }
 
@@ -52,7 +52,7 @@ int main() {
     for(int i=0; i<size; i++){
         index[i]=arr[i];
     }
-    sort(index, index+size,compare1);
+    sort(index, index+size,compare);
 
     for(int i=0; i<size; i++){
         cout << index[i] << endl;

@@ -11,13 +11,13 @@ int main() {
     int arr2[SIZE]={3,6,3,2,7,2};
 
     sort(arr1, arr1+SIZE, comp);
-    for(int value: arr1)
+    for(auto value: arr1)
         cout << value << " ";
 
     cout << endl;
 
     sort(arr2, arr2+SIZE);
-    for(int value: arr2)
+    for(auto value: arr2)
         cout << value << " ";
 
     cout << endl;
